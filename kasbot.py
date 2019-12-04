@@ -20,12 +20,12 @@ def word_count(bot, update):
     text = user_text.split()
     text_without_comand = text[1:]
     text_for_count = []
-    if len(text_without_comand) == 0:
+    if not len(text_without_comand):
         text_reply = f'Для подсчета количества слов, введите их после команды через пробелы!'
         update.message.reply_text(text_reply)
     else:
         text_for_count = list(filter(lambda value: value.isalpha(), text_without_comand))
-        if len(text_for_count) != 0:
+        if len(text_for_count):
             text_reply = f'Колличество слов в этом предложении равно: {len(text_for_count)} '
             print(text_reply)
             update.message.reply_text(text_reply)
