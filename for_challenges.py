@@ -27,7 +27,7 @@ names = ['Оля', 'Петя', 'Вася', 'Маша']
 for name in names:
     if is_male[name]:
         print(f'{name} - Male')
-    else:
+    elif not is_male[name]:
         print(f'{name} - Female')
 print()
 

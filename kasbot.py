@@ -20,17 +20,18 @@ def word_count(bot, update):
     text = user_text.split()
     text_without_comand = text[1:]
     text_for_count = []
-    if text_without_comand == []:
-        update.message.reply_text(f'Для подсчета количества слов, введите их после команды через пробелы!')
+    if len(text_without_comand) == 0:
+        text_reply = f'Для подсчета количества слов, введите их после команды через пробелы!'
+        update.message.reply_text(text_reply)
     else:
-        for value in text_without_comand:
-            if value.isalpha():
-                text_for_count.append(value)
-        if text_for_count != []:
-            (f'Колличество слов в этом предложении равно: {len(text_for_count)} ')
-            update.message.reply_text(f'Колличество слов в этом предложении равно: {len(text_for_count)} ')
+        text_for_count = list(filter(lambda value: value.isalpha(), text_without_comand))
+        if len(text_for_count) != 0:
+            text_reply = f'Колличество слов в этом предложении равно: {len(text_for_count)} '
+            print(text_reply)
+            update.message.reply_text(text_reply)
         else:
-            update.message.reply_text(f'Для подсчета не принимаются слова, состоящие только из символов или цифр')
+            text_reply = f'Для подсчета не принимаются слова, состоящие только из символов или цифр'
+            update.message.reply_text(text_reply)
 def main():
     mybot = Updater("1017943578:AAFSaBEhIBPLVK-epDLFoWpthzNNdKhkk5k", request_kwargs=PROXY)
 

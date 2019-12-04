@@ -1,10 +1,11 @@
 from datetime import datetime, timedelta
-
+import calendar
 # Напечатайте в консоль даты: вчера, сегодня, месяц назад
 
 date_today = datetime.now()
 date_yesterday = date_today - timedelta(1)
-date_30_last_day = date_today - timedelta(30)
+day_in_month = calendar.mdays[date_today.month]
+date_30_last_day = date_today - timedelta(day_in_month)
 print(date_yesterday)
 print(date_today)
 print(date_30_last_day)
