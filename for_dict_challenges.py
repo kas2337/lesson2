@@ -58,8 +58,7 @@ numb_of_class = 0
 for classes in school_students:
     numb_of_class += 1
     name_of_class = []
-    for name in classes:
-        name_of_class.append(name['first_name'])
+    name_of_class = [name['first_name'] for name in classes]
     value_names, count_names = Counter(name_of_class).most_common(1)[0]
     print(f'Самое частое имя в классе {numb_of_class}: {value_names}')
 
